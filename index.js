@@ -37,6 +37,10 @@ app.use("/api/users",userRoute)
 app.use("/api/posts",postRoute)
 app.use("/api/comments",commentRoute)
 
+app.get("/", (req, res)=> {
+    res.send("APP IS RUNNING Welcome to my API")
+})
+
 //image upload
 const storage=multer.diskStorage({
     destination:(req,file,fn)=>{
