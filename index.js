@@ -38,7 +38,7 @@ app.use("/api/posts",postRoute)
 app.use("/api/comments",commentRoute)
 
 app.get("/", (req, res)=> {
-    res.send("APP IS RUNNING Welcome to my API")
+    res.send("SERVER IS RUNNING")
 })
 
 //image upload
