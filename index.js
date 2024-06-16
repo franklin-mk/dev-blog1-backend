@@ -51,7 +51,8 @@ app.use(cors({
         credentials: true,
         maxAge: 3600, // 1 hour
         allowedHeaders: ['Content-Type', 'Authorization']
-  }));
+}));
+
 app.use(cookieParser())
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)
