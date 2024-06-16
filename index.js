@@ -31,8 +31,8 @@ app.use("/images",express.static(path.join(__dirname,"/images")))
 
 app.use(cors(
     {
-        origin:"https://dev-blog1-frontend1.onrender.com",
-        //origin: process.env.FRONTEND,
+        //origin:"https://dev-blog1-frontend1.onrender.com",
+        origin: process.env.FRONTEND,
         methods:["GET", "POST", "PUT", "DELETE"],
         credentials:true
     }
