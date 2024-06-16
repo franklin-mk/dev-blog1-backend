@@ -47,8 +47,6 @@ app.use(cors({
     },
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         credentials: true,
-        maxAge: 3600, // 1 hour
-        allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(cookieParser())
