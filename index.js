@@ -30,22 +30,33 @@ const connectDB=async()=>{
 dotenv.config()
 app.use(express.json())
 app.use("/images",express.static(path.join(__dirname,"/images")))
-app.use(cors(
+
+/* app.use(cors(
     {
         origin:"https://dev-blog1-frontend.onrender.com",
-        methods:["GET", "POST"],
+        methods:["GET", "POST", "PUT", "DELETE"],
         credentials:true
     }
-    ))
+    )) */
+
+app.use(cors({
+    origin: (origin, callback) => {
+      if (origin === 'https://dev-blog1-frontend.onrender.com' || origin === 'http://localhost:5000') {
+        callback(null, origin);
+      } else {
+         callback(new Error('Not allowed by CORS'));
+      }
+    },
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true,
+        maxAge: 3600, // 1 hour
+        allowedHeaders: ['Content-Type', 'Authorization']
+  }));
 app.use(cookieParser())
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)
 app.use("/api/posts",postRoute)
 app.use("/api/comments",commentRoute)
-
-//app.get("/", (req, res)=> {
-//    res.send("SERVER IS RUNNING")
-//})
 
 //image upload
 const storage=multer.diskStorage({
