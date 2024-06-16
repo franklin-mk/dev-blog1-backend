@@ -12,7 +12,7 @@ const userRoute=require('./routes/users')
 const postRoute=require('./routes/posts')
 const commentRoute=require('./routes/comments')
 
-//database
+//database connection
 const connectDB=async()=>{
     try{
         await mongoose.connect(process.env.MONGO_URL)
