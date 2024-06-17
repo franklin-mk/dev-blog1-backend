@@ -50,7 +50,7 @@ router.delete("/:id", verifyToken,  async (req,res)=>{
 
 
 //GET POST COMMENTS
-router.get("/post/:postId",async (req,res)=>{
+router.get("/post/:postId", verifyToken, async (req,res)=>{
     try{
         const comments=await Comment.find({postId:req.params.postId})
         res.status(200).json(comments)
