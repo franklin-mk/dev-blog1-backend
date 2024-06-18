@@ -41,7 +41,7 @@ router.post("/login", async (req, res) => {
         );
         
         const { password, ...info } = user._doc;
-        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "strict" })
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "None" })
            .status(200)
            .json(info);
     } catch (err) {
@@ -52,7 +52,7 @@ router.post("/login", async (req, res) => {
 // LOGOUT
 router.get("/logout", (req, res) => {
     try {
-        res.clearCookie("token", { httpOnly: true, secure: true, sameSite: "strict" })
+        res.clearCookie("token", { httpOnly: true, secure: true, sameSite: "None" })
            .status(200)
            .send("User logged out successfully!");
     } catch (err) {
