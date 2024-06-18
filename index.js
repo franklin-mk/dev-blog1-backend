@@ -31,7 +31,7 @@ app.use("/images",express.static(path.join(__dirname,"/images")))
 
 app.use(cors(
     {
-        //origin:"https://dev-blog1-frontend1.onrender.com",
+        //origin:"https://blogtest207.netlify.app",
         origin: process.env.FRONTEND,
         methods:["GET", "POST", "PUT", "DELETE"],
         credentials:true
